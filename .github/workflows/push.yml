@@ -102,10 +102,10 @@ jobs:
             - youtube-dl
             - yq
     steps:
-    - uses: actions-go/modified@master
-      id: is-modified
-      with:
-        pattern: ${{ matrix.image }}/**
+#    - uses: actions-go/modified@master
+#      id: is-modified
+#      with:
+#        pattern: ${{ matrix.image }}/**
     - uses: actions/checkout@v1
       if: steps.is-modified.outputs.modified == 'true' || (github.event_name == 'push' && github.event.ref == 'refs/heads/re-builld-all')
     - run: |
